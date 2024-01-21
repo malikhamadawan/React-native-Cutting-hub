@@ -7,9 +7,10 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
-const Start = () => {
+const Start = ({navigation}) => {
+  const [splash, setSplash] = useState(0);
   return (
     <View
       style={{
@@ -22,7 +23,15 @@ const Start = () => {
           width: '100%',
         }}>
         <ImageBackground
-          source={require('../../assets/backGround1.png')}
+          source={
+            splash === 0
+              ? require('../../assets/backGround1.png')
+              : splash === 1
+              ? require('../../assets/backGround2.png')
+              : splash === 2
+              ? require('../../assets/backGround3.png')
+              : require('../../assets/backGround4.png')
+          }
           style={{
             height: '100%',
             width: '100%',
@@ -38,7 +47,13 @@ const Start = () => {
                 color: 'white',
                 fontWeight: 'bold',
               }}>
-              Get Started with {'\n'}The Cutting Hub
+              {splash === 0
+                ? 'Get Started with \nThe Cutting Hub'
+                : splash === 1
+                ? 'Book Your Favourite \nServices'
+                : splash === 2
+                ? 'Stay Relax and \nEntertained'
+                : 'Never Miss an \nAppointment'}
             </Text>
             <View
               style={{
@@ -49,7 +64,13 @@ const Start = () => {
                   fontSize: 20,
                   color: 'white',
                 }}>
-                The Ultimate Salon Booking {'\n'}Experience.
+                {splash === 0
+                  ? 'The Ultimate Salon Booking \nExperience.'
+                  : splash === 1
+                  ? "From haircuts to facials, we've got you \ncovered"
+                  : splash === 2
+                  ? 'Games, news, and more while you \nwait.'
+                  : 'Get appointment reminders and \nupdates in real-time.'}
               </Text>
             </View>
           </View>
@@ -60,6 +81,13 @@ const Start = () => {
               marginVertical: '80%',
             }}>
             <TouchableOpacity
+              onPress={() => {
+                if (splash === 3) {
+                  navigation.navigate('SignUp');
+                } else {
+                  setSplash(splash + 1);
+                }
+              }}
               style={{
                 backgroundColor: '#C6147B',
                 width: '80%',
@@ -70,23 +98,26 @@ const Start = () => {
               }}>
               <Text>Next</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor: 'black',
-                width: '80%',
-                height: 50,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 10,
-                marginTop: 10,
-              }}>
-              <Text
+            {splash < 3 && (
+              <TouchableOpacity
+                onPress={() => setSplash(0)}
                 style={{
-                  color: 'red',
+                  backgroundColor: 'black',
+                  width: '80%',
+                  height: 50,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 10,
+                  marginTop: 10,
                 }}>
-                Skip
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    color: 'white',
+                  }}>
+                  Skip
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         </ImageBackground>
       </View>
