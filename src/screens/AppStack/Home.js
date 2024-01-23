@@ -8,9 +8,10 @@ import {
   TextInput,
   FlatList,
   ImageBackground,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
-
+import {Rating, AirbnbRating} from 'react-native-ratings';
 const Home = () => {
   const newData = [
     {
@@ -60,14 +61,114 @@ const Home = () => {
       discount: '20%',
     },
   ];
+  const newData3 = [
+    {
+      Id: 0,
+      image: require('../../assets/vickyhairsalon.jpg'),
+      shop: 'Vicky’s hair saloon',
+      location: 'Block P Phase 2 Johar Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 1,
+      image: require('../../assets/downTown.jpeg'),
+      shop: 'Downtown hair saloon',
+      location: '871-R1, Johar Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 2,
+      image: require('../../assets/barberCompany.jpeg'),
+      shop: 'The Barber Company | TBC',
+      location: 'Wapda, 391, D3, town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Close',
+    },
+    {
+      id: 3,
+      image: require('../../assets/masterCuts.jpeg'),
+      shop: 'Master Cuts',
+      location: 'Kashmir Block Allama Iqbal Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 4,
+      image: require('../../assets/HaiderSalon.jpeg'),
+      shop: 'Haider Salon',
+      location: 'Township Block 3 Twp Sector C 1 Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Close',
+    },
+    {
+      id: 5,
+      image: require('../../assets/mrCuts.jpeg'),
+      shop: 'Mr Cut Hair Saloon',
+      location: 'Block F Pia Housing Scheme, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      Id: 0,
+      image: require('../../assets/vickyhairsalon.jpg'),
+      shop: 'Vicky’s hair saloon',
+      location: 'Block P Phase 2 Johar Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 1,
+      image: require('../../assets/downTown.jpeg'),
+      shop: 'Downtown hair saloon',
+      location: '871-R1, Johar Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 2,
+      image: require('../../assets/barberCompany.jpeg'),
+      shop: 'The Barber Company | TBC',
+      location: 'Wapda, 391, D3, town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Close',
+    },
+    {
+      id: 3,
+      image: require('../../assets/masterCuts.jpeg'),
+      shop: 'Master Cuts',
+      location: 'Kashmir Block Allama Iqbal Town, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+    {
+      id: 4,
+      image: require('../../assets/HaiderSalon.jpeg'),
+      shop: 'Haider Salon',
+      location: 'Township Block 3 Twp Sector C 1 Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Close',
+    },
+    {
+      id: 5,
+      image: require('../../assets/mrCuts.jpeg'),
+      shop: 'Mr Cut Hair Saloon',
+      location: 'Block F Pia Housing Scheme, Lahore',
+      timing: '10:00-Am to 12:00-Pm',
+      status: 'Open',
+    },
+  ];
   return (
-    <View
-      style={{
+    // <ImageBackground
+    // source={require('../../assets/back.png')}>
+    <ScrollView
+      contentContainerStyle={{
         marginTop: Platform.OS === 'ios' ? 49 : 5,
-        flex: 1,
-        backgroundColor: '#F5F5F5',
+        flexGrow: 1,
+        // backgroundColor: '#F5F5F5',
         marginHorizontal: '3%',
-        // backgroundColor: 'red',
+        paddingBottom: 80,
       }}>
       <View
         style={{
@@ -82,11 +183,12 @@ const Home = () => {
             alignItems: 'center',
           }}>
           <Image
-            source={require('../../assets/profile1.png')}
+            source={require('../../assets/umair1.jpg')}
             style={{
               height: 60,
               width: 60,
               marginTop: 5,
+              borderRadius: 100,
             }}
           />
           <View>
@@ -97,7 +199,7 @@ const Home = () => {
                 color: 'black',
                 marginLeft: 10,
               }}>
-              Hi, John
+              Hi, Umair
             </Text>
             <View
               style={{
@@ -134,6 +236,12 @@ const Home = () => {
             justifyContent: 'center',
             alignContent: 'center',
             alignItems: 'center',
+            shadowOpacity: 10,
+            shadowColor: '#808080',
+            shadowOffset: {
+              width: 4,
+              height: 5,
+            },
           }}>
           <Image source={require('../../assets/bellIcon1.png')} />
         </TouchableOpacity>
@@ -185,6 +293,7 @@ const Home = () => {
           marginTop: 5,
         }}>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
             alignItems: 'center',
             // backgroundColor: 'red',
@@ -199,6 +308,12 @@ const Home = () => {
                 height: 80,
                 alignItems: 'center',
                 // backgroundColor: 'red',
+                shadowColor: '#808080',
+                shadowOpacity: 10,
+                shadowOffset: {
+                  width: 4,
+                  height: 5,
+                },
               }}>
               <Image
                 source={item.image}
@@ -224,6 +339,12 @@ const Home = () => {
         style={{
           // backgroundColor: 'blue',
           marginTop: 20,
+          shadowColor: '#808080',
+          shadowOpacity: 10,
+          shadowOffset: {
+            width: 4,
+            height: 5,
+          },
         }}>
         <Text
           style={{
@@ -240,15 +361,24 @@ const Home = () => {
           justifyContent: 'center',
           // backgroundColor: 'orange',
           marginTop: 10,
+          // paddingBottom: 10,
         }}>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           horizontal={true}
           style={{borderRadius: 15}}
           data={newData2}
           renderItem={({item}) => (
             <TouchableOpacity
               style={{
-                marginHorizontal: 3,
+                marginHorizontal: 10,
+                marginBottom: 10,
+                shadowColor: '#808080',
+                shadowOpacity: 10,
+                shadowOffset: {
+                  width: 4,
+                  height: 5,
+                },
               }}>
               <ImageBackground
                 source={item.image}
@@ -351,7 +481,13 @@ const Home = () => {
           // backgroundColor: 'blue',
           justifyContent: 'space-between',
           flexDirection: 'row',
-          marginTop: 20,
+          marginTop: 10,
+          shadowColor: '#808080',
+          shadowOpacity: 10,
+          shadowOffset: {
+            width: 4,
+            height: 5,
+          },
         }}>
         <Text
           style={{
@@ -381,22 +517,31 @@ const Home = () => {
           />
         </TouchableOpacity>
       </View>
-      <View
+      <ImageBackground
+      source={require('../../assets/box.png')}
         style={{
-          height: '23%',
-          width: '100%',
+          height: 180,
+          width: 370,
+          // width: '100%',
           marginTop: 15,
           // flexDirection: 'row',
-          backgroundColor: '#FFFFFF',
+          // backgroundColor: '#FFFFFF',
           borderRadius: 15,
+          shadowColor: '#808080',
+          shadowOpacity: 10,
+          shadowOffset: {
+            width: 4,
+            height: 5,
+          },
         }}>
         <View
           style={{
             flexDirection: 'row',
-            backgroundColor: '#FFFFFF',
+            // backgroundColor: '#FFFFFF',
             width: '100%',
             justifyContent: 'space-around',
             borderRadius: 12,
+
             // backgroundColor: 'blue',
           }}>
           <View
@@ -407,7 +552,7 @@ const Home = () => {
               flexDirection: 'row',
             }}>
             <Image
-              source={require('../../assets/umair1.jpg')}
+              source={require('../../assets/profile1.png')}
               style={{
                 height: 80,
                 width: 80,
@@ -433,7 +578,7 @@ const Home = () => {
                   marginLeft: 7,
                   marginTop: 7,
                 }}>
-                Umair Malik
+                John Smith
               </Text>
               <Text
                 style={{
@@ -467,7 +612,7 @@ const Home = () => {
         </View>
         <View
           style={{
-            backgroundColor: '#F5F5F5',
+            backgroundColor: '#fff',
             height: '25%',
             width: '95%',
             flexDirection: 'row',
@@ -535,8 +680,106 @@ const Home = () => {
             </Text>
           </View>
         </View>
+      </ImageBackground>
+      <View
+        style={{
+          marginTop: 5,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          shadowColor: '#808080',
+          shadowOpacity: 10,
+          shadowOffset: {
+            width: 4,
+            height: 5,
+          },
+        }}>
+        <Text
+          style={{
+            fontSize: 26,
+            color: '#0D1230',
+            fontWeight: '600',
+          }}>
+          Popular Shops near you
+        </Text>
+        <Text
+          style={{
+            fontSize: 11,
+            color: '#2158FF',
+          }}>
+          More
+        </Text>
       </View>
-    </View>
+      <View style={{borderRadius: 15}}>
+        {newData3.map((item, index) => (
+          <TouchableOpacity
+            key={index}
+            style={{
+              marginVertical: 10,
+            }}>
+            <ImageBackground
+              source={item.image}
+              imageStyle={{borderRadius: 15}}
+              style={{
+                height: 180,
+                width: '100%',
+                shadowColor: '#808080',
+                shadowOpacity: 10,
+                shadowOffset: {
+                  width: 4,
+                  height: 5,
+                },
+              }}>
+              <View
+                style={{
+                  position: 'absolute',
+                  bottom: 10,
+                  left: 10,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 19,
+                    color: 'white',
+                    fontWeight: '700',
+                    shadowOpacity: 10,
+                    shadowOffset: {
+                      width: 4,
+                      height: 5,
+                    },
+                  }}>
+                  {item.shop}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    color: '#FAFAFA',
+                  }}>
+                  {item.location}
+                </Text>
+                <View
+                  style={{
+                    width: 50,
+                    height: 20,
+                    backgroundColor: item.status === 'Close' ? 'red' : 'green',
+                    borderRadius: 40,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: '#fff',
+                    }}>
+                    {item.status}
+                  </Text>
+                </View>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </ScrollView>
+    // </ImageBackground>
   );
 };
 
