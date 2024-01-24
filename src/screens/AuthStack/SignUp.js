@@ -26,6 +26,7 @@ const SignUp = ({navigation}) => {
           style={{
             fontSize: 30,
             fontWeight: '600',
+            color: 'black',
           }}>
           Create an account,
         </Text>
@@ -33,6 +34,7 @@ const SignUp = ({navigation}) => {
           style={{
             fontSize: 14,
             fontWeight: '300',
+            color: 'black',
           }}>
           Please type full information bellow and we can create{'\n'}your
           account

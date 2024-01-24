@@ -26,6 +26,7 @@ const LogIn = ({navigation}) => {
           style={{
             fontSize: 30,
             fontWeight: '600',
+            color: 'black',
           }}>
           Welcome back,
         </Text>
@@ -33,6 +34,7 @@ const LogIn = ({navigation}) => {
           style={{
             fontSize: 14,
             fontWeight: '300',
+            color: 'black',
           }}>
           Glad to meet you again!, please login to use the app.
         </Text>

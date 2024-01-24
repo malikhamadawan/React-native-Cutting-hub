@@ -518,7 +518,7 @@ const Home = () => {
         </TouchableOpacity>
       </View>
       <ImageBackground
-      source={require('../../assets/box.png')}
+        source={require('../../assets/box.png')}
         style={{
           height: 180,
           width: 370,
@@ -716,12 +716,14 @@ const Home = () => {
             key={index}
             style={{
               marginVertical: 10,
+              elevation: 5,
             }}>
             <ImageBackground
               source={item.image}
               imageStyle={{borderRadius: 15}}
               style={{
                 height: 180,
+                elevation: 5,
                 width: '100%',
                 shadowColor: '#808080',
                 shadowOpacity: 10,
@@ -741,6 +743,7 @@ const Home = () => {
                     fontSize: 19,
                     color: 'white',
                     fontWeight: '700',
+                    elevation: 5,
                     shadowOpacity: 10,
                     shadowOffset: {
                       width: 4,
