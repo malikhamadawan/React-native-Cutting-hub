@@ -6,6 +6,7 @@ import {
   TextInput,
   Image,
   Platform,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 
@@ -17,6 +18,7 @@ const LogIn = ({navigation}) => {
         flex: 1,
         backgroundColor: '#F5F5F5',
       }}>
+    <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
       <View
         style={{
           marginHorizontal: '5%',

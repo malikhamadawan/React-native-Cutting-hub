@@ -164,7 +164,7 @@ const Home = () => {
     // source={require('../../assets/back.png')}>
     <ScrollView
       contentContainerStyle={{
-        marginTop: Platform.OS === 'ios' ? 49 : 5,
+        marginTop: Platform.OS === 'ios' ? 50 : 30,
         flexGrow: 1,
         // backgroundColor: '#F5F5F5',
         marginHorizontal: '3%',
@@ -236,8 +236,9 @@ const Home = () => {
             justifyContent: 'center',
             alignContent: 'center',
             alignItems: 'center',
+            elevation: 5,
             shadowOpacity: 10,
-            shadowColor: '#808080',
+            shadowColor: (Platform.OS = 'ios' ? '#808080' : null),
             shadowOffset: {
               width: 4,
               height: 5,
@@ -249,7 +250,7 @@ const Home = () => {
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'flex-start',
+          justifyContent: 'space-between',
           height: 40,
           width: '100%',
           alignSelf: 'center',
@@ -282,6 +283,7 @@ const Home = () => {
           style={{
             height: 16,
             width: 16,
+            marginRight: 5,
           }}
         />
       </View>
@@ -307,13 +309,14 @@ const Home = () => {
                 width: 65,
                 height: 80,
                 alignItems: 'center',
-                // backgroundColor: 'red',
+                // elevation: 5,
                 shadowColor: '#808080',
                 shadowOpacity: 10,
                 shadowOffset: {
                   width: 4,
                   height: 5,
                 },
+                // backgroundColor: 'red',
               }}>
               <Image
                 source={item.image}
@@ -339,6 +342,7 @@ const Home = () => {
         style={{
           // backgroundColor: 'blue',
           marginTop: 20,
+          elevation: 5,
           shadowColor: '#808080',
           shadowOpacity: 10,
           shadowOffset: {
@@ -379,6 +383,7 @@ const Home = () => {
                   width: 4,
                   height: 5,
                 },
+                // backgroundColor: 'red',
               }}>
               <ImageBackground
                 source={item.image}
@@ -386,6 +391,7 @@ const Home = () => {
                 style={{
                   height: 180,
                   width: 320,
+                  // elevation: 10,
                 }}>
                 <View
                   style={{
@@ -397,6 +403,7 @@ const Home = () => {
                     alignItems: 'center',
                     marginTop: 9,
                     marginLeft: 9,
+                    elevation: 10,
                   }}>
                   <Text
                     style={{

@@ -1,10 +1,11 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import { View } from 'react-native';
+import Button from '../../components/button'; // Correct import
 
 const Schedule = () => {
   return (
     <View>
-      <Text>Schedule</Text>
+      <Button text={'hello'} img={require('../../assets/back.png')} />
     </View>
   );
 };
