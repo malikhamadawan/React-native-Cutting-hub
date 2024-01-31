@@ -10,39 +10,21 @@ import {
 } from 'react-native';
 import React from 'react';
 import Input from '../../components/input';
-import CustomButton from '../../components/button';
+import CustomButton from '../../components/customButton';
 import OrSeprator from '../../components/orSeprator';
 import MainContainer from '../../components/mainContainer';
+import Header from '../../components/header';
+import HeaderDown from '../../components/headerDown';
+
 
 const SignUp = ({navigation}) => {
   return (
     <MainContainer>
+      <Header onboarding={"signup"} />
       <View
         style={{
-          width: '90%',
-          marginTop: '10%',
-        }}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: '600',
-            color: 'black',
-          }}>
-          Create an account,
-        </Text>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '300',
-            color: 'black',
-          }}>
-          Please type full information bellow and we can create{'\n'}your
-          account
-        </Text>
-      </View>
-      <View
-        style={{
-          marginTop: '15%',
+          marginTop: '5%',
+          // backgroundColor:'red',
           width: '100%',
         }}>
         <Input img={require('../../assets/icon1.png')} placeholder={'Name'} />
@@ -88,39 +70,14 @@ const SignUp = ({navigation}) => {
         text={'Sign Up with Google'}
         txtColor={'#2158ff'}
         borderColor={'#2158ff'}
-        img={true}
+        showImage={true}
         imgPath={require('../../assets/googleIcon.png')}
         borderWidth={true}
         press={() => {
           console.log('hello');
         }}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          width: '90%',
-          justifyContent: 'center',
-          alignContent: 'center',
-          alignSelf: 'center',
-          marginTop: 45,
-        }}>
-        <Text
-          style={{
-            fontSize: 13,
-            color: 'black',
-          }}>
-          Already have an account?
-        </Text>
-        <Text
-          onPress={() => navigation.navigate('AuthStack', {screen: 'LogIn'})}
-          style={{
-            fontSize: 13,
-            color: '#2158FF',
-            marginLeft: 2,
-          }}>
-          Sign In
-        </Text>
-      </View>
+      <HeaderDown value={'signup'}  press={() => navigation.navigate('AuthStack', {screen: 'LogIn'})} />
     </MainContainer>
   );
 };

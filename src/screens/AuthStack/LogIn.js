@@ -9,106 +9,29 @@ import {
   StatusBar,
 } from 'react-native';
 import React from 'react';
+import MainContainer from '../../components/mainContainer';
+import Input from '../../components/input';
+import CustomButton from '../../components/customButton';
+import OrSeprator from '../../components/orSeprator';
+import Header from '../../components/header';
+import HeaderDown from '../../components/headerDown';
 
 const LogIn = ({navigation}) => {
   return (
-    <View
-      style={{
-        marginTop: Platform.OS === 'ios' ? 49 : 5,
-        flex: 1,
-        backgroundColor: '#F5F5F5',
-      }}>
-    <StatusBar translucent backgroundColor="transparent" barStyle="dark-content"/>
+    <MainContainer>
+      <Header onboarding={'login'} />
       <View
         style={{
-          marginHorizontal: '5%',
-          marginTop: '10%',
+          marginTop: 20,
+          width: '100%',
+          // backgroundColor:'red'
         }}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: '600',
-            color: 'black',
-          }}>
-          Welcome back,
-        </Text>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '300',
-            color: 'black',
-          }}>
-          Glad to meet you again!, please login to use the app.
-        </Text>
-      </View>
-      <View
-        style={{
-          marginTop: '30%',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            height: 40,
-            width: '90%',
-            backgroundColor: 'white',
-            alignSelf: 'center',
-            borderRadius: 8,
-            alignItems: 'center',
-            marginVertical: '3%',
-          }}>
-          <Image
-            source={require('../../assets/icon2.png')}
-            style={{
-              height: 24,
-              width: 24,
-              marginLeft: 10,
-            }}
-          />
-          <TextInput
-            style={{
-              marginLeft: 10,
-              width: '18%',
-            }}
-            placeholder="Email"
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            height: 40,
-            width: '90%',
-            backgroundColor: 'white',
-            alignSelf: 'center',
-            borderRadius: 8,
-            alignItems: 'center',
-            marginVertical: '3%',
-          }}>
-          <Image
-            source={require('../../assets/icon3.png')}
-            style={{
-              height: 24,
-              width: 24,
-              marginLeft: 10,
-            }}
-          />
-          <TextInput
-            style={{
-              marginLeft: 10,
-              width: '45%',
-            }}
-            placeholder="Password"
-          />
-          <Image
-            source={require('../../assets/icon4.png')}
-            style={{
-              height: 24,
-              width: 24,
-              marginLeft: 115,
-            }}
-          />
-        </View>
+        <Input img={require('../../assets/icon2.png')} placeholder={'Email'} />
+        <Input
+          img={require('../../assets/icon3.png')}
+          placeholder={'Password'}
+          password={true}
+        />
       </View>
       <Text
         style={{
@@ -119,117 +42,32 @@ const LogIn = ({navigation}) => {
         }}>
         Forgot password?
       </Text>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
-        style={{
-          height: '6%',
-          width: '80%',
-          backgroundColor: '#2158FF',
-          alignItems: 'center',
-          alignSelf: 'center',
-          alignContent: 'center',
-          justifyContent: 'center',
-          borderRadius: 10,
-          marginTop: '35%',
-        }}>
-        <Text
-          style={{
-            fontSize: 16,
-            color: 'white',
-          }}>
-          Sign In
-        </Text>
-      </TouchableOpacity>
       <View
         style={{
-          alignContent: 'space-between',
-          flexDirection: 'row',
-          //   backgroundColor: 'red',
-          justifyContent: 'space-between',
+          marginTop: 20,
+          // backgroundColor: 'red',
+          width: '100%',
           alignItems: 'center',
-          alignSelf: 'center',
-          width: '80%',
-          marginTop: 30,
         }}>
-        <Image
-          source={require('../../assets/lineIcon1.png')}
-          style={{
-            width: 130,
-            height: 3,
-          }}
+        <CustomButton
+          press={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
+          text={'Sign Up'}
+          txtColor={'#fff'}
+          btnColor={'#2158ff'}
         />
-        <Text
-          style={{
-            fontSize: 16,
-            color: 'black',
-          }}>
-          or
-        </Text>
-        <Image
-          source={require('../../assets/lineIcon1.png')}
-          style={{
-            height: 3,
-            width: 130,
-          }}
+        <OrSeprator />
+        <CustomButton
+          text={'Sign In with Google'}
+          txtColor={'#2158ff'}
+          btnColor={'#fff'}
+          showImage={true}
+          imgPath={require('../../assets/googleIcon.png')}
+          borderColor={'#2158ff'}
+          borderWidth={true}
         />
       </View>
-      <TouchableOpacity
-        style={{
-          height: '5%',
-          width: '80%',
-          backgroundColor: 'transparent',
-          alignItems: 'center',
-          flexDirection: 'row',
-          alignSelf: 'center',
-          alignContent: 'center',
-          justifyContent: 'center',
-          borderRadius: 10,
-          borderColor: '#2158FF',
-          marginTop: 25,
-          borderWidth: 2,
-        }}>
-        <Image
-          source={require('../../assets/googleIcon.png')}
-          style={{
-            height: 24,
-            width: 24,
-          }}
-        />
-        <Text
-          style={{
-            fontSize: 13,
-            color: '#2158FF',
-            marginLeft: 10,
-          }}>
-          Sign In with Google
-        </Text>
-      </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: 'row',
-          width: '90%',
-          justifyContent: 'center',
-          alignContent: 'center',
-          alignSelf: 'center',
-          marginTop: 45,
-        }}>
-        <Text
-          style={{
-            fontSize: 13,
-            color: 'black',
-          }}>
-          Don’t have an account?
-        </Text>
-        <Text
-          style={{
-            fontSize: 13,
-            color: '#2158FF',
-            marginLeft: 2,
-          }}>
-          Join Now{' '}
-        </Text>
-      </View>
-    </View>
+      <HeaderDown value={'login'}  press={() => navigation.navigate('AuthStack', {screen: 'SignUp'})}/>
+    </MainContainer>
   );
 };
 

@@ -18,16 +18,16 @@ const index = ({img, placeholder, press, password}) => {
       <Image
         source={img}
         style={{
-          height: password=== true ? 20:24,
-          width: password=== true ? 20:24,
+          height: password === true ? 20 : 24,
+          width: password === true ? 20 : 24,
           marginLeft: 10,
-          marginRight:5
+          marginRight: 5,
         }}
       />
       <TextInput
         style={{
-        //   marginLeft: 10,
-          width: password=== true ? "77%":"85%",
+          //   marginLeft: 10,
+          width: password === true ? '77%' : '85%',
         }}
         placeholder={placeholder}
       />

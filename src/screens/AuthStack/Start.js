@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ImageBackground, StyleSheet } from 'react-native';
-import CustomButton from '../../components/button';
-import OnboardingText from '../../components/onboardingText';
+import CustomButton from '../../components/customButton';
+import Header from '../../components/header';
 import MainContainer from '../../components/mainContainer';
 
 const Start = ({ navigation }) => {
@@ -19,7 +19,7 @@ const Start = ({ navigation }) => {
   return (
     <MainContainer onBoarding={true} statusbar="light">
       <ImageBackground source={backgroundImage} style={styles.imageBackground}>
-        <OnboardingText splash={splash} />
+        <Header splash={splash} onboarding={"onboard"}/>
         <View style={styles.buttonContainer}>
           <CustomButton
             btnColor={'#C6147B'}
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: '80%',
+    marginTop: '80%',
   },
 });
 
