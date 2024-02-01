@@ -51,7 +51,7 @@ const LogIn = ({navigation}) => {
         }}>
         <CustomButton
           press={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
-          text={'Sign Up'}
+          text={'Sign In'}
           txtColor={'#fff'}
           btnColor={'#2158ff'}
         />
@@ -66,7 +66,10 @@ const LogIn = ({navigation}) => {
           borderWidth={true}
         />
       </View>
-      <HeaderDown value={'login'}  press={() => navigation.navigate('AuthStack', {screen: 'SignUp'})}/>
+      <HeaderDown
+        value={'login'}
+        press={() => navigation.navigate('AuthStack', {screen: 'SignUp'})}
+      />
     </MainContainer>
   );
 };

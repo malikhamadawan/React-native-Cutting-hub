@@ -1,12 +1,12 @@
 import {View, Text, TouchableOpacity, Image, TextInput} from 'react-native';
 import React from 'react';
 
-const index = ({img, placeholder, press, password}) => {
+const index = ({img, placeholder, press, password, img2, justifyContent}) => {
   return (
     <View
       style={{
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: justifyContent ? justifyContent : 'flex-start',
         height: 40,
         width: '90%',
         backgroundColor: 'white',
@@ -43,6 +43,15 @@ const index = ({img, placeholder, press, password}) => {
           />
         </TouchableOpacity>
       )}
+      <Image
+        source={img2}
+        style={{
+          height: password === true ? 20 : 24,
+          width: password === true ? 20 : 24,
+          marginLeft: 10,
+          marginRight: 5,
+        }}
+      />
     </View>
   );
 };

@@ -11,7 +11,10 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
+import ScheduleCard from '../../components/scheduleCard';
+import Input from '../../components/input';
 import {Rating, AirbnbRating} from 'react-native-ratings';
+import {ProfileHeader} from '../../components/profileHeader';
 const Home = () => {
   const newData = [
     {
@@ -160,145 +163,30 @@ const Home = () => {
     },
   ];
   return (
-    // <ImageBackground
-    // source={require('../../assets/back.png')}>
     <ScrollView
       contentContainerStyle={{
         marginTop: Platform.OS === 'ios' ? 50 : 30,
         flexGrow: 1,
-        // backgroundColor: '#F5F5F5',
         marginHorizontal: '3%',
         paddingBottom: 80,
       }}>
-      <View
-        style={{
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          // backgroundColor: 'red',
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <Image
-            source={require('../../assets/umair1.jpg')}
-            style={{
-              height: 60,
-              width: 60,
-              marginTop: 5,
-              borderRadius: 100,
-            }}
-          />
-          <View>
-            <Text
-              style={{
-                fontSize: 28,
-                fontWeight: '600',
-                color: 'black',
-                marginLeft: 10,
-              }}>
-              Hi, Umair
-            </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                alignSelf: 'center',
-              }}>
-              <Image
-                source={require('../../assets/mapIcon.png')}
-                style={{
-                  height: 12,
-                  width: 12,
-                  marginLeft: 10,
-                }}
-              />
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: 'black',
-                  marginLeft: 3,
-                }}>
-                52WQ+2X5, New South Wales
-              </Text>
-            </View>
-          </View>
-        </View>
-        <TouchableOpacity
-          style={{
-            height: 45,
-            width: 45,
-            backgroundColor: 'white',
-            borderRadius: 12,
-            justifyContent: 'center',
-            alignContent: 'center',
-            alignItems: 'center',
-            elevation: 5,
-            shadowOpacity: 10,
-            shadowColor: (Platform.OS = 'ios' ? '#808080' : null),
-            shadowOffset: {
-              width: 4,
-              height: 5,
-            },
-          }}>
-          <Image source={require('../../assets/bellIcon1.png')} />
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          height: 40,
-          width: '100%',
-          alignSelf: 'center',
-          alignItems: 'center',
-          alignContent: 'center',
-          backgroundColor: 'white',
-          marginTop: 10,
-          borderRadius: 10,
-        }}>
-        <Image
-          source={require('../../assets/magniferIcon.png')}
-          style={{
-            height: 16,
-            width: 16,
-            marginLeft: 5,
-          }}
-        />
-        <TextInput
-          style={{
-            width: '85%',
-            height: 40,
-            marginLeft: 7,
-            fontSize: 12,
-          }}
-          placeholder="Search “Salon, Specialist...”"
-          placeholderTextColor={'grey'}
-        />
-        <Image
-          source={require('../../assets/icons5.png')}
-          style={{
-            height: 16,
-            width: 16,
-            marginRight: 5,
-          }}
-        />
-      </View>
+      <ProfileHeader />
+      <Input
+        img={require('../../assets/magniferIcon.png')}
+        img2={require('../../assets/icons5.png')}
+        password={false}
+        justifyContent={'space-between'}
+      />
       <View
         style={{
           alignItems: 'center',
           justifyContent: 'center',
-          // backgroundColor: 'orange',
           marginTop: 5,
         }}>
         <FlatList
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
             alignItems: 'center',
-            // backgroundColor: 'red',
           }}
           horizontal={true}
           data={newData}
@@ -309,14 +197,12 @@ const Home = () => {
                 width: 65,
                 height: 80,
                 alignItems: 'center',
-                // elevation: 5,
                 shadowColor: '#808080',
                 shadowOpacity: 10,
                 shadowOffset: {
                   width: 4,
                   height: 5,
                 },
-                // backgroundColor: 'red',
               }}>
               <Image
                 source={item.image}
@@ -340,7 +226,6 @@ const Home = () => {
       </View>
       <View
         style={{
-          // backgroundColor: 'blue',
           marginTop: 20,
           elevation: 5,
           shadowColor: '#808080',
@@ -363,9 +248,7 @@ const Home = () => {
         style={{
           alignItems: 'center',
           justifyContent: 'center',
-          // backgroundColor: 'orange',
           marginTop: 10,
-          // paddingBottom: 10,
         }}>
         <FlatList
           showsHorizontalScrollIndicator={false}
@@ -383,7 +266,6 @@ const Home = () => {
                   width: 4,
                   height: 5,
                 },
-                // backgroundColor: 'red',
               }}>
               <ImageBackground
                 source={item.image}
@@ -391,7 +273,6 @@ const Home = () => {
                 style={{
                   height: 180,
                   width: 320,
-                  // elevation: 10,
                 }}>
                 <View
                   style={{
@@ -415,7 +296,6 @@ const Home = () => {
                 </View>
                 <View
                   style={{
-                    // backgroundColor: 'red',
                     marginTop: 20,
                     marginLeft: 10,
                   }}>
@@ -485,7 +365,6 @@ const Home = () => {
       </View>
       <View
         style={{
-          // backgroundColor: 'blue',
           justifyContent: 'space-between',
           flexDirection: 'row',
           marginTop: 10,
@@ -524,170 +403,7 @@ const Home = () => {
           />
         </TouchableOpacity>
       </View>
-      <ImageBackground
-        source={require('../../assets/box.png')}
-        style={{
-          height: 180,
-          width: 370,
-          // width: '100%',
-          marginTop: 15,
-          // flexDirection: 'row',
-          // backgroundColor: '#FFFFFF',
-          borderRadius: 15,
-          shadowColor: '#808080',
-          shadowOpacity: 10,
-          shadowOffset: {
-            width: 4,
-            height: 5,
-          },
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            // backgroundColor: '#FFFFFF',
-            width: '100%',
-            justifyContent: 'space-around',
-            borderRadius: 12,
-
-            // backgroundColor: 'blue',
-          }}>
-          <View
-            style={{
-              height: '45%',
-              width: '75%',
-              marginTop: 10,
-              flexDirection: 'row',
-            }}>
-            <Image
-              source={require('../../assets/profile1.png')}
-              style={{
-                height: 80,
-                width: 80,
-                borderRadius: 80,
-              }}
-            />
-            <View>
-              <Text
-                style={{
-                  fontSize: 19,
-                  fontWeight: '600',
-                  color: '#0D1230',
-                  marginTop: 7,
-                  marginLeft: 7,
-                }}>
-                InStyle Stylizt
-              </Text>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '400',
-                  color: '#0D1230',
-                  marginLeft: 7,
-                  marginTop: 7,
-                }}>
-                John Smith
-              </Text>
-              <Text
-                style={{
-                  fontSize: 13,
-                  fontWeight: '300',
-                  color: '#737687',
-                  marginLeft: 7,
-                }}>
-                Barber
-              </Text>
-            </View>
-          </View>
-          <TouchableOpacity
-            style={{
-              height: 30,
-              width: 30,
-              backgroundColor: '#BBE4FB',
-              borderRadius: 7,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginTop: 15,
-            }}>
-            <Image
-              source={require('../../assets/phoneIcon1.png')}
-              style={{
-                height: 20,
-                width: 20,
-              }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            backgroundColor: '#fff',
-            height: '25%',
-            width: '95%',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            alignSelf: 'center',
-            alignItems: 'center',
-            marginTop: 16,
-            borderRadius: 10,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              alignSelf: 'center',
-              // backgroundColor: 'red',
-              width: '50%',
-            }}>
-            <Image
-              source={require('../../assets/calendarIcon.png')}
-              style={{
-                height: 24,
-                width: 24,
-                marginLeft: 15,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: 13,
-                color: '#363A53',
-                marginLeft: 10,
-              }}>
-              Monday, 26 May
-            </Text>
-          </View>
-          <Image
-            source={require('../../assets/Icons7.png')}
-            style={{
-              height: 24,
-              width: 2,
-            }}
-          />
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              alignSelf: 'center',
-              // backgroundColor: 'red',
-              width: '50%',
-            }}>
-            <Image
-              source={require('../../assets/clockIcon.png')}
-              style={{
-                height: 24,
-                width: 24,
-                marginLeft: 25,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: 13,
-                color: '#363A53',
-                marginLeft: 10,
-              }}>
-              09:00 - 10:00
-            </Text>
-          </View>
-        </View>
-      </ImageBackground>
+      <ScheduleCard />
       <View
         style={{
           marginTop: 5,
@@ -789,7 +505,6 @@ const Home = () => {
         ))}
       </View>
     </ScrollView>
-    // </ImageBackground>
   );
 };
 

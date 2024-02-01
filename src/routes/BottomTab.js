@@ -2,9 +2,9 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Explore from '../screens/AppStack/Explore';
 import Home from '../screens/AppStack/Home';
-import {Image} from 'react-native';
+import {Image, Settings} from 'react-native';
 import Schedule from '../screens/AppStack/Schedule';
-import Fun from '../screens/AppStack/Fun';
+import Settiing from '../screens/AppStack/Setting';
 
 const Tab = createBottomTabNavigator();
 
@@ -65,12 +65,12 @@ const BottomTab = () => {
         }}
       />
       <Tab.Screen
-        name="Fun"
-        component={Fun}
+        name="Setting"
+        component={Settiing}
         options={{
           tabBarIcon: ({color}) => (
             <Image
-              source={require('../assets/gameIcon.png')}
+              source={require('../assets/setting11.png')}
               resizeMode={'contain'}
               style={{
                 width: 20,

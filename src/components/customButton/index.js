@@ -1,7 +1,18 @@
 import React from 'react';
-import { TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import {TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
 
-const CustomButton = ({ text, press, btnColor, txtColor, borderWidth, borderColor, showImage, imgPath }) => {
+const CustomButton = ({
+  text,
+  press,
+  width,
+  style,
+  imgPath,
+  btnColor,
+  txtColor,
+  showImage,
+  borderWidth,
+  borderColor,
+}) => {
   const handlePress = () => {
     press();
   };
@@ -9,7 +20,16 @@ const CustomButton = ({ text, press, btnColor, txtColor, borderWidth, borderColo
   return (
     <TouchableOpacity
       onPress={handlePress}
-      style={[styles.button, { backgroundColor: btnColor, borderWidth: borderWidth ? 2 : 0, borderColor: borderColor }]}>
+      style={[
+        styles.button,
+        {
+          backgroundColor: btnColor,
+          borderWidth: borderWidth ? 2 : 0,
+          borderColor: borderColor,
+          width: width ? width : '90%',
+        },
+        style,
+      ]}>
       {showImage && (
         <Image
           source={imgPath}
@@ -20,7 +40,7 @@ const CustomButton = ({ text, press, btnColor, txtColor, borderWidth, borderColo
           }}
         />
       )}
-      <Text style={{ color: txtColor }}>{text}</Text>
+      <Text style={{color: txtColor}}>{text}</Text>
     </TouchableOpacity>
   );
 };
