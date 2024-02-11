@@ -6,7 +6,7 @@ import CustomButton from '../../components/customButton';
 
 const Setting = () => {
   return (
-    <MainContainer>
+    <MainContainer marginTop={'15%'}>
       <View
         style={{
           flexDirection: 'row',
@@ -41,14 +41,79 @@ const Setting = () => {
           </Text>
         </View>
       </View>
-      <CustomButton
-        btnColor={'#fff'}
-        text={'Profile'}
-        txtColor={'#2158ff'}
-        imgPath={require('../../assets/icon1.png')}
-        showImage={true}
-        width={'100%'}
-      />
+      <View
+        style={{
+          width: '100%',
+          marginTop: 40,
+        }}>
+        <CustomButton
+          btnColor={'#fff'}
+          text={'Profile'}
+          txtColor={'#2158ff'}
+          imgPath={require('../../assets/icon1.png')}
+          showImage={true}
+          width={'95%'}
+          justi={'flex-start'}
+          imgMarg={10}
+        />
+        <CustomButton
+          btnColor={'#fff'}
+          text={'Appointments'}
+          txtColor={'#2158ff'}
+          imgPath={require('../../assets/appoinment2.png')}
+          showImage={true}
+          width={'95%'}
+          justi={'flex-start'}
+          imgMarg={10}
+        />
+        <CustomButton
+          btnColor={'#fff'}
+          text={'Language Region'}
+          txtColor={'#2158ff'}
+          imgPath={require('../../assets/languageIcon.png')}
+          showImage={true}
+          width={'95%'}
+          justi={'flex-start'}
+          imgMarg={10}
+        />
+        <CustomButton
+          btnColor={'#fff'}
+          text={'Privacy and Security'}
+          txtColor={'#2158ff'}
+          imgPath={require('../../assets/securityIcon.png')}
+          showImage={true}
+          width={'95%'}
+          justi={'flex-start'}
+          imgMarg={10}
+        />
+        <CustomButton
+          btnColor={'#fff'}
+          text={'Feed Back and Support'}
+          txtColor={'#2158ff'}
+          imgPath={require('../../assets/feedbackIcon.png')}
+          showImage={true}
+          width={'95%'}
+          justi={'flex-start'}
+          imgMarg={10}
+        />
+      </View>
+      <View
+        style={{
+          width: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 50,
+        }}>
+        <CustomButton
+          btnColor={'#2158ff'}
+          text={'Log Out'}
+          txtColor={'#fff'}
+          imgPath={require('../../assets/logOut1.png')}
+          showImage={true}
+          width={'35%'}
+          justi={'center'}
+        />
+      </View>
     </MainContainer>
   );
 };

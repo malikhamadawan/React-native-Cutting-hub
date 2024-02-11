@@ -60,6 +60,7 @@ const SignUp = ({navigation}) => {
       <CustomButton
         text={'Sign Up'}
         txtColor={'#fff'}
+        justi={'center'}
         btnColor={'#2158ff'}
         press={() => {
           console.log('hello');
@@ -70,6 +71,7 @@ const SignUp = ({navigation}) => {
         text={'Sign Up with Google'}
         txtColor={'#2158ff'}
         borderColor={'#2158ff'}
+        justi={'center'}
         showImage={true}
         imgPath={require('../../assets/googleIcon.png')}
         borderWidth={true}

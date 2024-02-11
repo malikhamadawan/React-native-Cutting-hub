@@ -5,9 +5,10 @@ const ProfileHeader = () => {
   return (
     <View
       style={{
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
+        width: '95%',
       }}>
       <View
         style={{
@@ -21,6 +22,7 @@ const ProfileHeader = () => {
             width: 60,
             marginTop: 5,
             borderRadius: 100,
+            marginLeft: 10,
           }}
         />
         <View>
@@ -63,6 +65,7 @@ const ProfileHeader = () => {
         style={{
           height: 45,
           width: 45,
+          marginLeft: 100,
           backgroundColor: 'white',
           borderRadius: 12,
           justifyContent: 'center',

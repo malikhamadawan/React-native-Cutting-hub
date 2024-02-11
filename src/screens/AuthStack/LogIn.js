@@ -53,6 +53,7 @@ const LogIn = ({navigation}) => {
           press={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
           text={'Sign In'}
           txtColor={'#fff'}
+          justi={'center'}
           btnColor={'#2158ff'}
         />
         <OrSeprator />
@@ -60,6 +61,7 @@ const LogIn = ({navigation}) => {
           text={'Sign In with Google'}
           txtColor={'#2158ff'}
           btnColor={'#fff'}
+          justi={'center'}
           showImage={true}
           imgPath={require('../../assets/googleIcon.png')}
           borderColor={'#2158ff'}

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { View, ImageBackground, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, ImageBackground, StyleSheet, StatusBar} from 'react-native';
 import CustomButton from '../../components/customButton';
 import Header from '../../components/header';
 import MainContainer from '../../components/mainContainer';
 
-const Start = ({ navigation }) => {
+const Start = ({navigation}) => {
   const [splash, setSplash] = useState(0);
 
   const imageSources = [
@@ -17,13 +17,18 @@ const Start = ({ navigation }) => {
   const backgroundImage = imageSources[splash];
 
   return (
-    <MainContainer onBoarding={true} statusbar="light">
+    <MainContainer
+      onBoarding={true}
+      statusbar="light"
+      backgroundColor={'transparent'}
+      width={'100%'}>
       <ImageBackground source={backgroundImage} style={styles.imageBackground}>
-        <Header splash={splash} onboarding={"onboard"}/>
+        <Header splash={splash} onboarding={'onboard'} />
         <View style={styles.buttonContainer}>
           <CustomButton
             btnColor={'#C6147B'}
             text={'Next'}
+            justi={'center'}
             txtColor={'black'}
             press={() => {
               if (splash === 3) {
@@ -37,6 +42,7 @@ const Start = ({ navigation }) => {
             <CustomButton
               btnColor={'#000'}
               text={'Skip'}
+              justi={'center'}
               txtColor={'#fff'}
               press={() => navigation.navigate('SignUp')}
             />

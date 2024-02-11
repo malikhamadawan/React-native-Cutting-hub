@@ -132,7 +132,7 @@ const Explore = () => {
       }}>
       <View
         style={{
-          marginTop: 18,
+          marginTop: '15%',
           height: 50,
           width: '100%',
           backgroundColor: '#FFFFFF',
@@ -213,7 +213,6 @@ const Explore = () => {
           value={searchQuery}
           onChangeText={text => handleSearch(text)}
         />
-
         <Image
           source={require('../../assets/icons5.png')}
           style={{
@@ -223,77 +222,86 @@ const Explore = () => {
           }}
         />
       </View>
-      <View style={{borderRadius: 15}}>
-        {filteredData.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={{
-              marginVertical: 10,
-              elevation: 5,
-            }}>
-            <ImageBackground
-              source={item.image}
-              imageStyle={{borderRadius: 15}}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: '30%',
+          paddingHorizontal: 15,
+          marginTop: 10,
+        }}>
+        <View style={{borderRadius: 15}}>
+          {filteredData.map((item, index) => (
+            <TouchableOpacity
+              key={index}
               style={{
-                height: 180,
+                marginVertical: 10,
                 elevation: 5,
-                width: '100%',
-                shadowColor: '#808080',
-                shadowOpacity: 10,
-                shadowOffset: {
-                  width: 4,
-                  height: 5,
-                },
               }}>
-              <View
+              <ImageBackground
+                source={item.image}
+                imageStyle={{borderRadius: 15}}
                 style={{
-                  position: 'absolute',
-                  bottom: 10,
-                  left: 10,
+                  height: 180,
+                  elevation: 5,
+                  width: '100%',
+                  shadowColor: '#808080',
+                  shadowOpacity: 10,
+                  shadowOffset: {
+                    width: 4,
+                    height: 5,
+                  },
                 }}>
-                <Text
-                  style={{
-                    fontSize: 19,
-                    color: 'white',
-                    fontWeight: '700',
-                    elevation: 5,
-                    shadowOpacity: 10,
-                    shadowOffset: {
-                      width: 4,
-                      height: 5,
-                    },
-                  }}>
-                  {item.shop}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: '#FAFAFA',
-                  }}>
-                  {item.location}
-                </Text>
                 <View
                   style={{
-                    width: 50,
-                    height: 20,
-                    backgroundColor: item.status === 'Close' ? 'red' : 'green',
-                    borderRadius: 40,
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    position: 'absolute',
+                    bottom: 10,
+                    left: 10,
                   }}>
                   <Text
                     style={{
-                      fontSize: 13,
-                      color: '#fff',
+                      fontSize: 19,
+                      color: 'white',
+                      fontWeight: '700',
+                      elevation: 5,
+                      shadowOpacity: 10,
+                      shadowOffset: {
+                        width: 4,
+                        height: 5,
+                      },
                     }}>
-                    {item.status}
+                    {item.shop}
                   </Text>
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      color: '#FAFAFA',
+                    }}>
+                    {item.location}
+                  </Text>
+                  <View
+                    style={{
+                      width: 50,
+                      height: 20,
+                      backgroundColor:
+                        item.status === 'Close' ? 'red' : 'green',
+                      borderRadius: 40,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        color: '#fff',
+                      }}>
+                      {item.status}
+                    </Text>
+                  </View>
                 </View>
-              </View>
-            </ImageBackground>
-          </TouchableOpacity>
-        ))}
-      </View>
+              </ImageBackground>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 };

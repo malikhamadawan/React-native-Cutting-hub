@@ -12,6 +12,9 @@ const CustomButton = ({
   showImage,
   borderWidth,
   borderColor,
+  justi,
+  textmarginL,
+  imgMarg
 }) => {
   const handlePress = () => {
     press();
@@ -27,16 +30,20 @@ const CustomButton = ({
           borderWidth: borderWidth ? 2 : 0,
           borderColor: borderColor,
           width: width ? width : '90%',
+          justifyContent: justi,
         },
         style,
       ]}>
       {showImage && (
         <Image
           source={imgPath}
+
           style={{
             height: 24,
             width: 24,
             marginRight: 10,
+            marginLeft: imgMarg
+
           }}
         />
       )}
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     alignItems: 'center',
-    justifyContent: 'center',
+
     borderRadius: 10,
     margin: 10,
     flexDirection: 'row',
