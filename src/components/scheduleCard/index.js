@@ -6,14 +6,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import CustomButton from '../../components/customButton';
 
-const index = () => {
+const index = ({showBtn = false}) => {
   return (
-    <ImageBackground
-      source={require('../../assets/box.png')}
+    <View
       style={{
-        height: 180,
+        height: showBtn ? '48%' : 180,
         width: 370,
+        backgroundColor: '#fff',
         marginTop: 15,
         borderRadius: 15,
         shadowColor: '#808080',
@@ -22,6 +23,7 @@ const index = () => {
           width: 4,
           height: 5,
         },
+        // backgroundColor: 'blue',
       }}>
       <View
         style={{
@@ -105,7 +107,7 @@ const index = () => {
           justifyContent: 'space-evenly',
           alignSelf: 'center',
           alignItems: 'center',
-          marginTop: 16,
+          // marginTop: 7,
           borderRadius: 10,
         }}>
         <View
@@ -164,7 +166,49 @@ const index = () => {
           </Text>
         </View>
       </View>
-    </ImageBackground>
+      <View>
+        {showBtn && (
+          <Image
+            source={require('../../assets/divider1.png')}
+            style={{
+              width: '100%',
+            }}
+          />
+        )}
+
+        {showBtn && (
+          <View
+            style={{
+              // backgroundColor: 'red',
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+            }}>
+            <CustomButton
+              btnColor={'#fff'}
+              borderWidth={1}
+              borderColor={'#737687'}
+              width={130}
+              text={'Cancel'}
+              justi={'center'}
+              fontWeight={'500'}
+              txtColor={'#737687'}
+              btnHeight={35}
+            />
+            <CustomButton
+              imgPath={require('../../assets/editIcon.png')}
+              btnColor={'#2158FF'}
+              width={130}
+              text={'Edit'}
+              justi={'center'}
+              fontWeight={'500'}
+              txtColor={'#fff'}
+              btnHeight={35}
+              showImage={true}
+            />
+          </View>
+        )}
+      </View>
+    </View>
   );
 };
 

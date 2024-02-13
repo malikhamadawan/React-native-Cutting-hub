@@ -165,9 +165,8 @@ const Home = () => {
   return (
     <ScrollView
       contentContainerStyle={{
-        marginTop: Platform.OS === 'ios' ? 50 : 30,
+        marginTop: '10%',
         flexGrow: 1,
-        marginHorizontal: '3%',
         paddingBottom: 80,
       }}>
       <ProfileHeader />
@@ -179,330 +178,337 @@ const Home = () => {
       />
       <View
         style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 5,
+          flex: 1,
+          marginHorizontal: '3%',
         }}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{
-            alignItems: 'center',
-          }}
-          horizontal={true}
-          data={newData}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              style={{
-                justifyContent: 'center',
-                width: 65,
-                height: 80,
-                alignItems: 'center',
-                shadowColor: '#808080',
-                shadowOpacity: 10,
-                shadowOffset: {
-                  width: 4,
-                  height: 5,
-                },
-              }}>
-              <Image
-                source={item.image}
-                style={{
-                  height: 50,
-                  width: 50,
-                  borderRadius: 30,
-                }}
-              />
-              <Text
-                style={{
-                  fontSize: 10,
-                  fontWeight: '400',
-                  marginVertical: 5,
-                }}>
-                {item.title}
-              </Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-      <View
-        style={{
-          marginTop: 20,
-          elevation: 5,
-          shadowColor: '#808080',
-          shadowOpacity: 10,
-          shadowOffset: {
-            width: 4,
-            height: 5,
-          },
-        }}>
-        <Text
+        <View
           style={{
-            fontSize: 23,
-            fontWeight: '300',
-            color: '#0D1230',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 5,
           }}>
-          #SpecialOffers
-        </Text>
-      </View>
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 10,
-        }}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          horizontal={true}
-          style={{borderRadius: 15}}
-          data={newData2}
-          renderItem={({item}) => (
-            <TouchableOpacity
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              alignItems: 'center',
+            }}
+            horizontal={true}
+            data={newData}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                style={{
+                  justifyContent: 'center',
+                  width: 65,
+                  height: 80,
+                  alignItems: 'center',
+                  shadowColor: '#808080',
+                  shadowOpacity: 10,
+                  shadowOffset: {
+                    width: 4,
+                    height: 5,
+                  },
+                }}>
+                <Image
+                  source={item.image}
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 30,
+                  }}
+                />
+                <Text
+                  style={{
+                    fontSize: 10,
+                    fontWeight: '400',
+                    marginVertical: 5,
+                  }}>
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View
+          style={{
+            marginTop: 20,
+            elevation: 5,
+            shadowColor: '#808080',
+            shadowOpacity: 10,
+            shadowOffset: {
+              width: 4,
+              height: 5,
+            },
+          }}>
+          <Text
+            style={{
+              fontSize: 23,
+              fontWeight: '300',
+              color: '#0D1230',
+            }}>
+            #SpecialOffers
+          </Text>
+        </View>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 10,
+          }}>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            style={{borderRadius: 15}}
+            data={newData2}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                style={{
+                  marginHorizontal: 10,
+                  marginBottom: 10,
+                  shadowColor: '#808080',
+                  shadowOpacity: 10,
+                  shadowOffset: {
+                    width: 4,
+                    height: 5,
+                  },
+                }}>
+                <ImageBackground
+                  source={item.image}
+                  imageStyle={{borderRadius: 15}}
+                  style={{
+                    height: 180,
+                    width: 320,
+                  }}>
+                  <View
+                    style={{
+                      backgroundColor: '#BBE4FB',
+                      height: 20,
+                      width: 83,
+                      borderRadius: 9,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginTop: 9,
+                      marginLeft: 9,
+                      elevation: 10,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 11,
+                        color: '#0D1230',
+                      }}>
+                      {item.time}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      marginTop: 20,
+                      marginLeft: 10,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 19,
+                        color: '#FAFAFA',
+                      }}>
+                      Get Special Discount
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                    }}>
+                    <View
+                      style={{
+                        marginLeft: 10,
+                        marginTop: 3,
+                        width: 50,
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 16,
+                          color: '#FAFAFA',
+                        }}>
+                        Up to
+                      </Text>
+                    </View>
+                    <View
+                      style={{
+                        marginTop: 7,
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 28,
+                          color: '#FAFAFA',
+                        }}>
+                        {item.discount}
+                      </Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity
+                    style={{
+                      backgroundColor: '#2158FF',
+                      height: 28,
+                      width: 70,
+                      alignItems: 'center',
+                      alignSelf: 'flex-end',
+                      justifyContent: 'center',
+                      marginRight: 15,
+                      marginTop: 25,
+                      borderRadius: 5,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        color: '#FAFAFA',
+                      }}>
+                      Claim
+                    </Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+        <View
+          style={{
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            marginTop: 10,
+            shadowColor: '#808080',
+            shadowOpacity: 10,
+            shadowOffset: {
+              width: 4,
+              height: 5,
+            },
+          }}>
+          <Text
+            style={{
+              fontSize: 23,
+              color: '#0D1230',
+              fontWeight: '600',
+            }}>
+            Upcoming Schedule
+          </Text>
+          <TouchableOpacity
+            style={{
+              height: 26,
+              width: 26,
+              backgroundColor: '#FFFFFF',
+              borderRadius: 6,
+              justifyContent: 'center',
+              alignSelf: 'center',
+              alignContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Image
+              source={require('../../assets/Icons6.png')}
               style={{
-                marginHorizontal: 10,
-                marginBottom: 10,
-                shadowColor: '#808080',
-                shadowOpacity: 10,
-                shadowOffset: {
-                  width: 4,
-                  height: 5,
-                },
+                height: 20,
+                width: 20,
+              }}
+            />
+          </TouchableOpacity>
+        </View>
+        <ScheduleCard />
+        <View
+          style={{
+            marginTop: 5,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            shadowColor: '#808080',
+            shadowOpacity: 10,
+            shadowOffset: {
+              width: 4,
+              height: 5,
+            },
+          }}>
+          <Text
+            style={{
+              fontSize: 26,
+              color: '#0D1230',
+              fontWeight: '600',
+            }}>
+            Popular Shops near you
+          </Text>
+          <Text
+            style={{
+              fontSize: 11,
+              color: '#2158FF',
+            }}>
+            More
+          </Text>
+        </View>
+        <View style={{borderRadius: 15}}>
+          {newData3.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={{
+                marginVertical: 10,
+                elevation: 5,
               }}>
               <ImageBackground
                 source={item.image}
                 imageStyle={{borderRadius: 15}}
                 style={{
                   height: 180,
-                  width: 320,
+                  elevation: 5,
+                  width: '100%',
+                  shadowColor: '#808080',
+                  shadowOpacity: 10,
+                  shadowOffset: {
+                    width: 4,
+                    height: 5,
+                  },
                 }}>
                 <View
                   style={{
-                    backgroundColor: '#BBE4FB',
-                    height: 20,
-                    width: 83,
-                    borderRadius: 9,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: 9,
-                    marginLeft: 9,
-                    elevation: 10,
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: 11,
-                      color: '#0D1230',
-                    }}>
-                    {item.time}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    marginTop: 20,
-                    marginLeft: 10,
+                    position: 'absolute',
+                    bottom: 10,
+                    left: 10,
                   }}>
                   <Text
                     style={{
                       fontSize: 19,
-                      color: '#FAFAFA',
+                      color: 'white',
+                      fontWeight: '700',
+                      elevation: 5,
+                      shadowOpacity: 10,
+                      shadowOffset: {
+                        width: 4,
+                        height: 5,
+                      },
                     }}>
-                    Get Special Discount
+                    {item.shop}
                   </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                  }}>
-                  <View
-                    style={{
-                      marginLeft: 10,
-                      marginTop: 3,
-                      width: 50,
-                    }}>
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        color: '#FAFAFA',
-                      }}>
-                      Up to
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      marginTop: 7,
-                    }}>
-                    <Text
-                      style={{
-                        fontSize: 28,
-                        color: '#FAFAFA',
-                      }}>
-                      {item.discount}
-                    </Text>
-                  </View>
-                </View>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#2158FF',
-                    height: 28,
-                    width: 70,
-                    alignItems: 'center',
-                    alignSelf: 'flex-end',
-                    justifyContent: 'center',
-                    marginRight: 15,
-                    marginTop: 25,
-                    borderRadius: 5,
-                  }}>
                   <Text
                     style={{
-                      fontSize: 13,
+                      fontSize: 15,
                       color: '#FAFAFA',
                     }}>
-                    Claim
+                    {item.location}
                   </Text>
-                </TouchableOpacity>
+                  <View
+                    style={{
+                      width: 50,
+                      height: 20,
+                      backgroundColor:
+                        item.status === 'Close' ? 'red' : 'green',
+                      borderRadius: 40,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        color: '#fff',
+                      }}>
+                      {item.status}
+                    </Text>
+                  </View>
+                </View>
               </ImageBackground>
             </TouchableOpacity>
-          )}
-        />
-      </View>
-      <View
-        style={{
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          marginTop: 10,
-          shadowColor: '#808080',
-          shadowOpacity: 10,
-          shadowOffset: {
-            width: 4,
-            height: 5,
-          },
-        }}>
-        <Text
-          style={{
-            fontSize: 23,
-            color: '#0D1230',
-            fontWeight: '600',
-          }}>
-          Upcoming Schedule
-        </Text>
-        <TouchableOpacity
-          style={{
-            height: 26,
-            width: 26,
-            backgroundColor: '#FFFFFF',
-            borderRadius: 6,
-            justifyContent: 'center',
-            alignSelf: 'center',
-            alignContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Image
-            source={require('../../assets/Icons6.png')}
-            style={{
-              height: 20,
-              width: 20,
-            }}
-          />
-        </TouchableOpacity>
-      </View>
-      <ScheduleCard />
-      <View
-        style={{
-          marginTop: 5,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          shadowColor: '#808080',
-          shadowOpacity: 10,
-          shadowOffset: {
-            width: 4,
-            height: 5,
-          },
-        }}>
-        <Text
-          style={{
-            fontSize: 26,
-            color: '#0D1230',
-            fontWeight: '600',
-          }}>
-          Popular Shops near you
-        </Text>
-        <Text
-          style={{
-            fontSize: 11,
-            color: '#2158FF',
-          }}>
-          More
-        </Text>
-      </View>
-      <View style={{borderRadius: 15}}>
-        {newData3.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={{
-              marginVertical: 10,
-              elevation: 5,
-            }}>
-            <ImageBackground
-              source={item.image}
-              imageStyle={{borderRadius: 15}}
-              style={{
-                height: 180,
-                elevation: 5,
-                width: '100%',
-                shadowColor: '#808080',
-                shadowOpacity: 10,
-                shadowOffset: {
-                  width: 4,
-                  height: 5,
-                },
-              }}>
-              <View
-                style={{
-                  position: 'absolute',
-                  bottom: 10,
-                  left: 10,
-                }}>
-                <Text
-                  style={{
-                    fontSize: 19,
-                    color: 'white',
-                    fontWeight: '700',
-                    elevation: 5,
-                    shadowOpacity: 10,
-                    shadowOffset: {
-                      width: 4,
-                      height: 5,
-                    },
-                  }}>
-                  {item.shop}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: '#FAFAFA',
-                  }}>
-                  {item.location}
-                </Text>
-                <View
-                  style={{
-                    width: 50,
-                    height: 20,
-                    backgroundColor: item.status === 'Close' ? 'red' : 'green',
-                    borderRadius: 40,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: 13,
-                      color: '#fff',
-                    }}>
-                    {item.status}
-                  </Text>
-                </View>
-              </View>
-            </ImageBackground>
-          </TouchableOpacity>
-        ))}
+          ))}
+        </View>
       </View>
     </ScrollView>
   );

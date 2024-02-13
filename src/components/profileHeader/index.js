@@ -5,15 +5,17 @@ const ProfileHeader = () => {
   return (
     <View
       style={{
-        // justifyContent: 'space-between',
+        justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
-        width: '95%',
+        width: '100%',
+        paddingHorizontal: 10,
       }}>
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
+          width: '60%',
         }}>
         <Image
           source={require('../../assets/umair1.jpg')}
@@ -41,13 +43,13 @@ const ProfileHeader = () => {
               alignItems: 'center',
               justifyContent: 'center',
               alignSelf: 'center',
+              marginLeft: 10,
             }}>
             <Image
               source={require('../../assets/mapIcon.png')}
               style={{
                 height: 12,
                 width: 12,
-                marginLeft: 10,
               }}
             />
             <Text
@@ -65,7 +67,6 @@ const ProfileHeader = () => {
         style={{
           height: 45,
           width: 45,
-          marginLeft: 100,
           backgroundColor: 'white',
           borderRadius: 12,
           justifyContent: 'center',

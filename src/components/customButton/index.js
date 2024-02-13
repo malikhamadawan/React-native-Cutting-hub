@@ -12,9 +12,11 @@ const CustomButton = ({
   showImage,
   borderWidth,
   borderColor,
+  btnHeight,
+  fontWeight,
   justi,
   textmarginL,
-  imgMarg
+  imgMarg,
 }) => {
   const handlePress = () => {
     press();
@@ -31,23 +33,22 @@ const CustomButton = ({
           borderColor: borderColor,
           width: width ? width : '90%',
           justifyContent: justi,
+          height: btnHeight ? btnHeight : 48,
         },
         style,
       ]}>
       {showImage && (
         <Image
           source={imgPath}
-
           style={{
             height: 24,
             width: 24,
             marginRight: 10,
-            marginLeft: imgMarg
-
+            marginLeft: imgMarg,
           }}
         />
       )}
-      <Text style={{color: txtColor}}>{text}</Text>
+      <Text style={{color: txtColor, fontWeight: fontWeight}}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     alignItems: 'center',
-
+    alignSelf: 'center',
     borderRadius: 10,
     margin: 10,
     flexDirection: 'row',
