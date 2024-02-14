@@ -8,11 +8,19 @@ import {
 import React from 'react';
 import CustomButton from '../../components/customButton';
 
-const index = ({showBtn = false}) => {
+const index = ({
+  showBtn = false,
+  title,
+  name,
+  profileImage,
+  date,
+  endTime,
+  startTime,
+}) => {
   return (
     <View
       style={{
-        height: showBtn ? '48%' : 180,
+        height: showBtn ? 200 : 180,
         width: 370,
         backgroundColor: '#fff',
         marginTop: 15,
@@ -40,7 +48,7 @@ const index = ({showBtn = false}) => {
             flexDirection: 'row',
           }}>
           <Image
-            source={require('../../assets/profile1.png')}
+            source={profileImage}
             style={{
               height: 80,
               width: 80,
@@ -56,7 +64,7 @@ const index = ({showBtn = false}) => {
                 marginTop: 7,
                 marginLeft: 7,
               }}>
-              InStyle Stylizt
+              {title}
             </Text>
             <Text
               style={{
@@ -66,7 +74,7 @@ const index = ({showBtn = false}) => {
                 marginLeft: 7,
                 marginTop: 7,
               }}>
-              John Smith
+              {name}
             </Text>
             <Text
               style={{
@@ -131,7 +139,7 @@ const index = ({showBtn = false}) => {
               color: '#363A53',
               marginLeft: 10,
             }}>
-            Monday, 26 May
+            {date}
           </Text>
         </View>
         <Image
@@ -162,7 +170,7 @@ const index = ({showBtn = false}) => {
               color: '#363A53',
               marginLeft: 10,
             }}>
-            09:00 - 10:00
+            {startTime} - {endTime}
           </Text>
         </View>
       </View>

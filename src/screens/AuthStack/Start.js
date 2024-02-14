@@ -26,10 +26,10 @@ const Start = ({navigation}) => {
         <Header splash={splash} onboarding={'onboard'} />
         <View style={styles.buttonContainer}>
           <CustomButton
-            btnColor={'#C6147B'}
+            btnColor={'#2158FF'}
             text={'Next'}
             justi={'center'}
-            txtColor={'black'}
+            txtColor={'#fff'}
             press={() => {
               if (splash === 3) {
                 navigation.navigate('SignUp');
@@ -40,10 +40,10 @@ const Start = ({navigation}) => {
           />
           {splash < 3 ? (
             <CustomButton
-              btnColor={'#000'}
+              btnColor={'#fff'}
               text={'Skip'}
               justi={'center'}
-              txtColor={'#fff'}
+              txtColor={'#2158FF'}
               press={() => navigation.navigate('SignUp')}
             />
           ) : null}

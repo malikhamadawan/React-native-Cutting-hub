@@ -191,12 +191,12 @@ const Explore = () => {
           borderRadius: 10,
         }}>
         <Image
-          source={require('../../assets/magniferIcon.png')}
+          source={require('../../assets/searchIcon2.png')}
           style={{
             height: 16,
             width: 16,
             marginLeft: 5,
-            backgroundColor: 'black',
+            // backgroundColor: 'black',
           }}
         />
         <TextInput

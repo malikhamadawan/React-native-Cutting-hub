@@ -171,7 +171,7 @@ const Home = () => {
       }}>
       <ProfileHeader />
       <Input
-        img={require('../../assets/magniferIcon.png')}
+        img={require('../../assets/searchIcon2.png')}
         img2={require('../../assets/icons5.png')}
         password={false}
         justifyContent={'space-between'}
@@ -407,7 +407,14 @@ const Home = () => {
             />
           </TouchableOpacity>
         </View>
-        <ScheduleCard />
+        <ScheduleCard
+          title={'Nadeem Hair Saloon'}
+          name={'Nadeem'}
+          date={'Monday,26 May'}
+          startTime={'09:00'}
+          endTime={'10:00'}
+          profileImage={require('../../assets/profile1.png')}
+        />
         <View
           style={{
             marginTop: 5,

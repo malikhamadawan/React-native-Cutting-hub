@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, FlatList} from 'react-native';
 import MainContainer from '../../components/mainContainer';
-import {ProfileHeader} from '../../components/profileHeader';
 import Input from '../../components/input';
 import ScheduleCard from '../../components/scheduleCard';
-import CustomButton from '../../components/customButton';
 
 const Schedule = () => {
   const [showInput, setShowInput] = useState(false);
@@ -12,12 +10,60 @@ const Schedule = () => {
   const toggleInput = () => {
     setShowInput(!showInput);
   };
+  const data = [
+    {
+      id: 0,
+      title: 'Nadeem Saloon',
+      name: 'Nadeem',
+      profileImage: require('../../assets/profile1.png'),
+      date: 'Monday,26 May',
+      startTime: '10:00',
+      endTime: '10:30',
+    },
+    {
+      id: 1,
+      title: 'Mr Cutts',
+      name: 'Usman',
+      profileImage: require('../../assets/profile2.jpeg'),
+      date: 'Tuesday,26 June',
+      startTime: '09:00',
+      endTime: '10:00',
+    },
+    {
+      id: 2,
+      title: 'DownTown Hair Saloon',
+      name: 'Nouman Khalid',
+      profileImage: require('../../assets/profile3.jpeg'),
+      date: 'Saturday,16 Feb',
+      startTime: '12:00',
+      endTime: '13:00',
+    },
+    {
+      id: 3,
+      title: 'Master Cuts',
+      name: 'Asad',
+      profileImage: require('../../assets/profile4.jpeg'),
+      date: 'Sunday,21 Nov',
+      startTime: '20:00',
+      endTime: '21:00',
+    },
+    {
+      id: 4,
+      title: 'Vicky Hair Saloon',
+      name: 'Vicky',
+      profileImage: require('../../assets/profile5.jpg'),
+      date: 'Wednesday,19 March',
+      startTime: '22:00',
+      endTime: '23:00',
+    },
+  ];
 
   return (
     <MainContainer marginTop={'10%'}>
       <View
         style={{
           alignItems: 'center',
+          // backgroundColor: '#FFFF',
         }}>
         <View
           style={{
@@ -37,7 +83,7 @@ const Schedule = () => {
           </Text>
           <TouchableOpacity onPress={toggleInput}>
             <Image
-              source={require('../../assets/magniferIcon.png')}
+              source={require('../../assets/searchIcon2.png')}
               style={{
                 height: 24,
                 width: 24,
@@ -47,14 +93,58 @@ const Schedule = () => {
         </View>
         {showInput && (
           <Input
-            img={require('../../assets/magniferIcon.png')}
+            img={require('../../assets/searchIcon2.png')}
             img2={require('../../assets/icons5.png')}
             password={false}
             justifyContent={'space-between'}
           />
         )}
-        <ScheduleCard showBtn={true} />
       </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+        <View
+          style={{
+            width: '46%',
+            backgroundColor: '#fff',
+            height: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text>Upcoming</Text>
+        </View>
+        <View
+          style={{
+            width: '46%',
+            // backgroundColor: '#fff',
+            height: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text>History</Text>
+        </View>
+      </View>
+      <FlatList
+        contentContainerStyle={{
+          alignItems: 'center',
+        }}
+        renderItem={({item}) => {
+          return (
+            <ScheduleCard
+              name={item.name}
+              title={item.title}
+              date={item.date}
+              startTime={item.startTime}
+              endTime={item.endTime}
+              profileImage={item.profileImage}
+              showBtn={true}
+            />
+          );
+        }}
+        data={data}
+      />
     </MainContainer>
   );
 };

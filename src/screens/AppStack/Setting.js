@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import MainContainer from '../../components/mainContainer';
 import {ProfileHeader} from '../../components/profileHeader';
@@ -7,10 +7,12 @@ import CustomButton from '../../components/customButton';
 const Setting = () => {
   return (
     <MainContainer marginTop={'15%'}>
-      <View
+    <ProfileHeader />
+      {/* <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
+          paddingHorizontal: 10,
         }}>
         <Image
           source={require('../../assets/umair1.jpg')}
@@ -40,7 +42,7 @@ const Setting = () => {
             talhabinumar004@gmail.com
           </Text>
         </View>
-      </View>
+      </View> */}
       <View
         style={{
           width: '100%',
@@ -97,23 +99,28 @@ const Setting = () => {
           imgMarg={10}
         />
       </View>
-      <View
-        style={{
-          width: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: 50,
-        }}>
-        <CustomButton
-          btnColor={'#2158ff'}
-          text={'Log Out'}
-          txtColor={'#fff'}
-          imgPath={require('../../assets/logOut1.png')}
-          showImage={true}
-          width={'35%'}
-          justi={'center'}
-        />
-      </View>
+        <TouchableOpacity
+          // onPress={handlePress}
+          style={{
+            // backgroundColor: 'yellow',
+            width: '25%',
+            justifyContent: 'center',
+            alignContent: 'center',
+            flexDirection: 'row',
+            position:'absolute',
+            bottom:30,
+            right:0
+          }}>
+          <Image
+            source={require('../../assets/logOut1.png')}
+            style={{
+              height: 20,
+              width: 20,
+              marginRight: 3,
+            }}
+          />
+          <Text style={{color: '#2158ff', fontWeight: '500',fontSize:15}}>Logout</Text>
+        </TouchableOpacity>
     </MainContainer>
   );
 };
