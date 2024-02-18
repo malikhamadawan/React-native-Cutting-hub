@@ -17,11 +17,11 @@ const Start = ({navigation}) => {
   const backgroundImage = imageSources[splash];
 
   return (
-    <MainContainer
-      onBoarding={true}
-      statusbar="light"
-      backgroundColor={'transparent'}
-      width={'100%'}>
+    <View
+      style={{
+        flex: 1,
+      }}>
+      <StatusBar barStyle="light-content" backgroundColor={'transparent'} />
       <ImageBackground source={backgroundImage} style={styles.imageBackground}>
         <Header splash={splash} onboarding={'onboard'} />
         <View style={styles.buttonContainer}>
@@ -30,7 +30,7 @@ const Start = ({navigation}) => {
             text={'Next'}
             justi={'center'}
             txtColor={'#fff'}
-            press={() => {
+            onPress={() => {
               if (splash === 3) {
                 navigation.navigate('SignUp');
               } else {
@@ -44,12 +44,12 @@ const Start = ({navigation}) => {
               text={'Skip'}
               justi={'center'}
               txtColor={'#2158FF'}
-              press={() => navigation.navigate('SignUp')}
+              onPress={() => navigation.navigate('SignUp')}
             />
           ) : null}
         </View>
       </ImageBackground>
-    </MainContainer>
+    </View>
   );
 };
 

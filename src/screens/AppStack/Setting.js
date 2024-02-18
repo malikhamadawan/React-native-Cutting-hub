@@ -7,7 +7,7 @@ import CustomButton from '../../components/customButton';
 const Setting = () => {
   return (
     <MainContainer marginTop={'15%'}>
-    <ProfileHeader />
+      <ProfileHeader />
       {/* <View
         style={{
           flexDirection: 'row',
@@ -99,28 +99,31 @@ const Setting = () => {
           imgMarg={10}
         />
       </View>
-        <TouchableOpacity
-          // onPress={handlePress}
+      <TouchableOpacity
+        // onPress={handlePress}
+        style={{
+          // backgroundColor: 'yellow',
+          width: '25%',
+          justifyContent: 'center',
+          alignContent: 'center',
+          flexDirection: 'row',
+          position: 'absolute',
+          bottom: 30,
+          right: 0,
+        }}>
+        <Image
+          source={require('../../assets/logOut1.png')}
           style={{
-            // backgroundColor: 'yellow',
-            width: '25%',
-            justifyContent: 'center',
-            alignContent: 'center',
-            flexDirection: 'row',
-            position:'absolute',
-            bottom:30,
-            right:0
-          }}>
-          <Image
-            source={require('../../assets/logOut1.png')}
-            style={{
-              height: 20,
-              width: 20,
-              marginRight: 3,
-            }}
-          />
-          <Text style={{color: '#2158ff', fontWeight: '500',fontSize:15}}>Logout</Text>
-        </TouchableOpacity>
+            height: 20,
+            width: 20,
+            marginRight: 3,
+            tintColor: '#2158ff',
+          }}
+        />
+        <Text style={{color: '#000000', fontWeight: '500', fontSize: 15}}>
+          Logout
+        </Text>
+      </TouchableOpacity>
     </MainContainer>
   );
 };

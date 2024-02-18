@@ -4,12 +4,18 @@ import MainContainer from '../../components/mainContainer';
 import Input from '../../components/input';
 import ScheduleCard from '../../components/scheduleCard';
 
-const Schedule = () => {
+const Schedule = ({navigation}) => {
   const [showInput, setShowInput] = useState(false);
+  const [button, setButton] = useState('upComing');
+  console.log('button', button);
 
   const toggleInput = () => {
     setShowInput(!showInput);
   };
+  const handlePress = () => {
+    console.log('handlePress');
+  };
+
   const data = [
     {
       id: 0,
@@ -103,48 +109,82 @@ const Schedule = () => {
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'center',
+          justifyContent: 'space-evenly',
+          backgroundColor: '#fff',
+          // width: '100%'
         }}>
-        <View
+        <TouchableOpacity
+          onPress={() => {
+            setButton('upComing');
+          }}
           style={{
-            width: '46%',
-            backgroundColor: '#fff',
+            width: '30%',
+            // backgroundColor: button === 'upComing' ? "#2158FF":"#fff",
+            // borderRadius: 20,
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
+            borderBottomWidth: button === 'upComing' ? 5 : 0,
+            borderColor: '#2158FF',
           }}>
           <Text>Upcoming</Text>
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setButton('history');
+          }}
           style={{
-            width: '46%',
+            width: '30%',
             // backgroundColor: '#fff',
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Text>History</Text>
-        </View>
+        </TouchableOpacity>
       </View>
-      <FlatList
-        contentContainerStyle={{
-          alignItems: 'center',
-        }}
-        renderItem={({item}) => {
-          return (
-            <ScheduleCard
-              name={item.name}
-              title={item.title}
-              date={item.date}
-              startTime={item.startTime}
-              endTime={item.endTime}
-              profileImage={item.profileImage}
-              showBtn={true}
-            />
-          );
-        }}
-        data={data}
-      />
+      {button === 'upComing' ? (
+        <FlatList
+          contentContainerStyle={{
+            alignItems: 'center',
+          }}
+          renderItem={({item}) => {
+            return (
+              <ScheduleCard
+                name={item.name}
+                title={item.title}
+                date={item.date}
+                startTime={item.startTime}
+                endTime={item.endTime}
+                profileImage={item.profileImage}
+                showBtn={true}
+              />
+            );
+          }}
+          data={data}
+        />
+      ) : (
+        <FlatList
+          contentContainerStyle={{
+            alignItems: 'center',
+          }}
+          renderItem={({item, index}) => {
+            return (
+              <ScheduleCard
+                id={index}
+                name={item.name}
+                title={item.title}
+                date={item.date}
+                startTime={item.startTime}
+                endTime={item.endTime}
+                profileImage={item.profileImage}
+                showBtn={false}
+              />
+            );
+          }}
+          data={data}
+        />
+      )}
     </MainContainer>
   );
 };

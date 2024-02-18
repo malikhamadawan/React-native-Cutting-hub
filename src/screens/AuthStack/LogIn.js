@@ -18,7 +18,11 @@ import HeaderDown from '../../components/headerDown';
 
 const LogIn = ({navigation}) => {
   return (
-    <MainContainer>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+      }}>
       <Header onboarding={'login'} />
       <View
         style={{
@@ -50,7 +54,7 @@ const LogIn = ({navigation}) => {
           alignItems: 'center',
         }}>
         <CustomButton
-          press={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
+          onPress={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
           text={'Sign In'}
           txtColor={'#fff'}
           justi={'center'}
@@ -72,7 +76,7 @@ const LogIn = ({navigation}) => {
         value={'login'}
         press={() => navigation.navigate('AuthStack', {screen: 'SignUp'})}
       />
-    </MainContainer>
+    </View>
   );
 };
 

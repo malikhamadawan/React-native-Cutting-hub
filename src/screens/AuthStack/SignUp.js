@@ -16,11 +16,15 @@ import MainContainer from '../../components/mainContainer';
 import Header from '../../components/header';
 import HeaderDown from '../../components/headerDown';
 
-
 const SignUp = ({navigation}) => {
   return (
-    <MainContainer>
-      <Header onboarding={"signup"} />
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+      }}>
+      <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
+      <Header onboarding={'signup'} />
       <View
         style={{
           marginTop: '5%',
@@ -62,9 +66,7 @@ const SignUp = ({navigation}) => {
         txtColor={'#fff'}
         justi={'center'}
         btnColor={'#2158ff'}
-        press={() => {
-          console.log('hello');
-        }}
+        onPress={() => navigation.navigate('AppStack', {screen: 'BottomTab'})}
       />
       <OrSeprator />
       <CustomButton
@@ -75,12 +77,15 @@ const SignUp = ({navigation}) => {
         showImage={true}
         imgPath={require('../../assets/googleIcon.png')}
         borderWidth={true}
-        press={() => {
+        onPress={() => {
           console.log('hello');
         }}
       />
-      <HeaderDown value={'signup'}  press={() => navigation.navigate('AuthStack', {screen: 'LogIn'})} />
-    </MainContainer>
+      <HeaderDown
+        value={'signup'}
+        press={() => navigation.navigate('AuthStack', {screen: 'LogIn'})}
+      />
+    </View>
   );
 };
 

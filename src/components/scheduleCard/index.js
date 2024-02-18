@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import CustomButton from '../../components/customButton';
+import {useNavigation} from '@react-navigation/native';
 
 const index = ({
   showBtn = false,
@@ -16,7 +17,11 @@ const index = ({
   date,
   endTime,
   startTime,
+  onPress,
+  id,
 }) => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -203,6 +208,9 @@ const index = ({
               btnHeight={35}
             />
             <CustomButton
+              onPress={() => {
+                navigation.navigate('AppStack', {screen: 'Shop'});
+              }}
               imgPath={require('../../assets/editIcon.png')}
               btnColor={'#2158FF'}
               width={130}

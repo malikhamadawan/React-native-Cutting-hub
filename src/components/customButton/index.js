@@ -3,10 +3,10 @@ import {TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
 
 const CustomButton = ({
   text,
-  press,
   width,
   style,
   imgPath,
+  onPress,
   btnColor,
   txtColor,
   showImage,
@@ -17,14 +17,15 @@ const CustomButton = ({
   justi,
   textmarginL,
   imgMarg,
+  tintColor,
 }) => {
-  const handlePress = () => {
-    press();
-  };
+  // const handlePress = () => {
+  //   press();
+  // };
 
   return (
     <TouchableOpacity
-      onPress={handlePress}
+      onPress={onPress}
       style={[
         styles.button,
         {
@@ -45,6 +46,7 @@ const CustomButton = ({
             width: 24,
             marginRight: 10,
             marginLeft: imgMarg,
+            tintColor: tintColor,
           }}
         />
       )}

@@ -28,6 +28,7 @@ const index = ({img, placeholder, press, password, img2, justifyContent}) => {
         style={{
           //   marginLeft: 10,
           width: password === true ? '77%' : '85%',
+          padding: 0,
         }}
         placeholder={placeholder}
       />
