@@ -221,6 +221,7 @@ const Home = () => {
                     fontSize: 10,
                     fontWeight: '400',
                     marginVertical: 5,
+                    color:'black',
                   }}>
                   {item.title}
                 </Text>

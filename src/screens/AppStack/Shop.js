@@ -1,11 +1,18 @@
-import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 import React, {useState} from 'react';
 import ImageBackground from '../../components/imageBackground';
 import Review from '../../components/review';
 import Services from '../../components/services';
 import Info from '../../components/info';
-
-const Shop = () => {
+import CustomButton from '../../components/customButton';
+const Shop = navigation => {
   const [button, setButton] = useState('info');
   console.log('button', button);
 
@@ -13,61 +20,61 @@ const Shop = () => {
     {
       id: 0,
       title: "Men's Haircut",
-      price: '500Rs',
-      details: 'All prices include taxes\nSkin fade add 150Rs',
+      price: '500 Rs',
+      details: 'All prices include taxes\nSkin fade add 150 Rs',
       time: '30 minutes',
     },
     {
       id: 1,
       title: 'Youth Cut',
-      price: '400Rs',
-      details: 'Between 13 to 17 years of age\nSkin fade add 150Rs',
+      price: '400 Rs',
+      details: 'Between 13 to 17 years of age\nSkin fade add 150 Rs',
       time: '30 minutes',
     },
     {
       id: 2,
       title: 'Children Cut',
-      price: '350Rs',
+      price: '350 Rs',
       details: '12 years and younger',
       time: '20 minutes',
     },
     {
       id: 3,
       title: "Senior's Cut",
-      price: '400Rs',
+      price: '400 Rs',
       details: '65 years and older',
       time: '30 minutes',
     },
     {
       id: 4,
       title: 'Buzz Cut',
-      price: '400Rs',
-      details: 'Skin fade add 150Rs',
+      price: '400 Rs',
+      details: 'Skin fade add 150 Rs',
       time: '20 minutes',
     },
     {
       id: 5,
       title: 'Buzz Cut & Beard Trim',
-      price: '700Rs',
-      details: 'All prices include taxes\nSkin fade add 150Rs',
+      price: '700 Rs',
+      details: 'All prices include taxes\nSkin fade add 150 Rs',
       time: '35 minutes',
     },
     {
       id: 6,
       title: 'Haircut & Beard Trim',
-      price: '100Rs',
-      details: 'All prices include taxes\nSkin fade add 150Rs',
+      price: '1000 Rs',
+      details: 'All prices include taxes\nSkin fade add 150 Rs',
       time: '45 minutes',
     },
   ];
   const newData = [
-    {id: 0, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Monday :'},
-    {id: 1, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Tuesday :'},
-    {id: 2, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Wednesday :'},
-    {id: 3, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Thursday :'},
-    {id: 4, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Friday :'},
-    {id: 5, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Saturday :'},
-    {id: 6, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Sunday :'},
+    {id: 0, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Monday'},
+    {id: 1, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Tuesday'},
+    {id: 2, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Wednesday'},
+    {id: 3, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Thursday'},
+    {id: 4, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Friday'},
+    {id: 5, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Saturday'},
+    {id: 6, openTime: '10:00 AM', closeTime: '12:00 AM', day: 'Sunday'},
   ];
   const review = [
     {
@@ -131,12 +138,14 @@ const Shop = () => {
           setButton('info');
         }}
         onPressServices={() => {
-          setButton('onPressServices');
+          setButton('services');
         }}
         onPressReview={() => {
-          setButton('onPressReview');
+          setButton('review');
         }}
+        info={button}
       />
+
       {button === 'info' ? (
         <View
           style={{
@@ -144,7 +153,7 @@ const Shop = () => {
             borderRadius: 10,
             backgroundColor: '#fff',
             marginTop: 5,
-            height: 280,
+            height: '56%',
             paddingHorizontal: 10,
             paddingVertical: 10,
           }}>
@@ -201,13 +210,13 @@ const Shop = () => {
             />
           </View>
         </View>
-      ) : button === 'onPressServices' ? (
+      ) : button === 'services' ? (
         <View
           style={{
             width: '95%',
+            flex: 1,
             borderRadius: 10,
             marginTop: 5,
-            height: '100%',
           }}>
           <FlatList
             data={data}
@@ -224,7 +233,10 @@ const Shop = () => {
           />
         </View>
       ) : (
-        <View>
+        <View
+          style={{
+            flex: 1,
+          }}>
           <View
             style={{
               width: '100%',
@@ -255,23 +267,45 @@ const Shop = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View>
-            <FlatList
-              data={review}
-              renderItem={({item}) => {
-                return (
-                  <Review
-                    stars={item.stars}
-                    comment={item.comment}
-                    profileName={item.profileName}
-                    profileSymbol={item.profileSymbol}
-                  />
-                );
-              }}
-            />
-          </View>
+          <FlatList
+            contentContainerStyle={{
+              flexGrow: 1,
+            }}
+            style={{
+              flex: 1,
+            }}
+            data={review}
+            renderItem={({item}) => {
+              return (
+                <Review
+                  stars={item.stars}
+                  comment={item.comment}
+                  profileName={item.profileName}
+                  profileSymbol={item.profileSymbol}
+                />
+              );
+            }}
+          />
         </View>
       )}
+      <View
+        style={{
+          width: '100%',
+          marginBottom: '8%',
+        }}>
+        <CustomButton
+          onPress={() => {
+            navigation.navigate('AppStack', {screen: 'BookNow'});
+          }}
+          width={'95%'}
+          btnColor={'#2158FF'}
+          text={'Book Now'}
+          txtColor={'white'}
+          justi={'center'}
+          fontSize={20}
+          fontWeight={'500'}
+        />
+      </View>
     </View>
   );
 };

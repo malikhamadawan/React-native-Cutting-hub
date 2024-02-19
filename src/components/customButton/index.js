@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
 
+
 const CustomButton = ({
   text,
   width,
@@ -14,6 +15,7 @@ const CustomButton = ({
   borderColor,
   btnHeight,
   fontWeight,
+  fontSize,
   justi,
   textmarginL,
   imgMarg,
@@ -50,7 +52,10 @@ const CustomButton = ({
           }}
         />
       )}
-      <Text style={{color: txtColor, fontWeight: fontWeight}}>{text}</Text>
+      <Text
+        style={{color: txtColor, fontWeight: fontWeight, fontSize: fontSize}}>
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };

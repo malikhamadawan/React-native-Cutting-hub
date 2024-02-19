@@ -127,7 +127,14 @@ const Schedule = ({navigation}) => {
             borderBottomWidth: button === 'upComing' ? 5 : 0,
             borderColor: '#2158FF',
           }}>
-          <Text>Upcoming</Text>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              color: 'black',
+            }}>
+            Upcoming
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
@@ -139,8 +146,17 @@ const Schedule = ({navigation}) => {
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
+            borderColor: '#2158FF',
+            borderBottomWidth: button === 'history' ? 5 : 0,
           }}>
-          <Text>History</Text>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              color: 'black',
+            }}>
+            History
+          </Text>
         </TouchableOpacity>
       </View>
       {button === 'upComing' ? (
