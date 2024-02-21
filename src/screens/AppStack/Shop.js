@@ -127,6 +127,9 @@ const Shop = navigation => {
       comment: 'Gorgeous,Brilliant services',
     },
   ];
+
+ 
+
   return (
     <View
       style={{
